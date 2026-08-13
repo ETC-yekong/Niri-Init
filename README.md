@@ -1,4 +1,4 @@
-# Projects
+# Niri-Init
 
 基于 Arch Linux + [niri](https://github.com/YaLTeR/niri)（Wayland 合成器）的桌面环境一键安装与配置脚本集合。
 
