@@ -1,0 +1,39 @@
+{
+    //连接同目录下的modules.jsonc，模块配置将放在此文件中
+    "include": "~/.config/waybar/modules.jsonc",
+    
+    //------------waybar外观设置------------
+    //始终将waybar显示在显示屏最顶层
+    "layer": "top",
+    //waybar位置位于显示器上方
+    "position": "top",
+    //当配置更新时，自动重载waybar
+    "reload_style_on_change": true,
+    //让中间的模块一直位于中间
+    "fixed-center": true,
+    
+    //------------waybar模块设置------------
+    //waybar左侧模块
+    "modules-left": [
+        "custom/power", //自定义模块，管理电源菜单和软件启动器
+        "niri/workspaces", //工作区模块
+        "niri/window" //窗口模块
+    ],
+    //waybar中间模块
+    "modules-center": [
+        "power-profiles-daemon", //性能切换模块
+        "idle_inhibitor", //自动熄屏管理模块
+        "clock", //时钟模块
+        "group/mediaplayer" //媒体播放器模块
+    ],
+    //waybar右侧模块
+    "modules-right": [
+        "tray", //软件托盘模块
+        "group/audio", //音频管理模块
+        "network", //网络模块
+        "bluetooth", //蓝牙模块
+        "group/system", //硬件占用监测模块 
+        "group/backlight", //亮度调节模块
+        "battery" //电池模块
+    ]
+}

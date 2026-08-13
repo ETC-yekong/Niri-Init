@@ -1,0 +1,39 @@
+#这是niri安装脚本v2.0
+#在这个脚本里我将会做出一些适人改动，同时也会把我自己美化的主题加入进去
+#当然我不会写，所以这个文件是给ai做的参考资料，让ai写😊
+
+#----------软件安装----------
+#安装niri基础组件
+sudo pacman -S --needed niri xdg-desktop-portal-gtk xdg-desktop-portal-gnome xwayland-satellite udiskie fuzzel kitty
+#安装通知功能
+sudo pacman -S --needed libnotify mako polkit-gnome
+#安装中文输入法（前提是已经配置了archlinuxcn源）
+sudo pacman -S --needed fcitx5-im fcitx5-rime rime-ice-pinyin rime-wanxiang-pinyin
+#安装文件管理器
+sudo pacman -S --needed xdg-desktop-portal-gtk thunar tumbler ffmpegthumbnailer poppler-glib gvfs-smb file-roller thunar-archive-plugin gnome-keyring thunar-volman gvfs-mtp gvfs-gphoto2 webp-pixbuf-loader icoextract python-pillow xdg-terminal-exec
+#安装锁屏
+sudo pacman -S --needed swaylock-effects
+#安装自动熄屏
+sudo pacman -S swayidle
+#安装剪贴板
+yay -S --needed wl-clipboard clipse clipse-gui
+#安装截图编辑
+sudo pacman -S satty
+#安装壁纸
+yay -S awww waypaper
+#安装waybar
+sudo pacman -S --needed waybar ttf-jetbrains-mono-nerd otf-font-awesome bluetui gnome-clocks gnome-calendar brightnessctl matugen
+#安装鼠标指针
+sudo pacman -S breeze-cursors
+#安装ly
+sudo pacman -S ly
+
+#----------复制文件到~/.config中----------
+#将目录下的niri,kitty,mako,matugen,satty,swaylock,waybar,waypaper,xdg-desktop-protal文件夹复制到~/.config中，如果已经有相应文件夹就直接替换
+#将目录下的fcitx5文件夹复制到~/.local/share中，如果有相应文件夹就直接替换
+
+#---------执行命令----------
+#设置ly开机自启
+sudo systemctl enable ly@tty1
+#设置thunar的右键打开终端功能
+echo "kitty.desktop" >> ~/.config/xdg-terminal.list

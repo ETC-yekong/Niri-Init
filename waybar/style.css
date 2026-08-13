@@ -1,0 +1,383 @@
+@import "colors.css";
+
+/* =========================================================
+ * waybar 独立色块风格
+ * · 每个模块（含 group 内部）都是一个实色圆角胶囊块，模块间留间距
+ * · 颜色全部由 colors.css 提供（matugen 生成），切壁纸即可换肤
+ * · 字号/内边距/外边距对齐参考配置，bar 约 40px
+ * ========================================================= */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMonoNL Nerd Font Propo", "LXGW WenKai Screen", "Noto Sans CJK SC", "Font Awesome 7 Free";
+    font-size: 16px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @on_surface;
+    min-height: 40px;
+}
+
+/* ---------- 悬浮提示 ---------- */
+
+tooltip {
+    background: @surface_container;
+    border: 1px solid @outline_variant;
+    border-radius: 4px;
+}
+
+tooltip label {
+    color: @on_surface;
+    font-size: 15px;
+    padding: 6px 10px;
+}
+
+/* ---------- 左侧：电源 + 工作区 + 窗口 ---------- */
+
+#custom-power {
+    background: @surface_container;
+    color: #89b4fa;
+    padding: 3px 10px;
+    margin: 2px 2px;
+    border-radius: 999px;
+    font-size: 16px;
+}
+
+#custom-power:hover {
+    background: #1e3a8a;
+    color: #dbeafe;
+}
+
+#workspaces button {
+    background: @surface_container;
+    color: @on_surface_variant;
+    padding: 3px 10px;
+    margin: 1px 2px;
+    border-radius: 999px;
+    font-size: 16px;
+}
+
+#workspaces button:hover {
+    background: @surface_container_high;
+    color: @on_surface;
+}
+
+#workspaces button.active {
+    background: @primary_container;
+    color: @on_primary_container;
+}
+
+#workspaces button.urgent {
+    background: @error_container;
+    color: @on_error_container;
+}
+
+#workspaces button .niri-taskbar-btn {
+    margin: 0 2px;
+    font-size: 14px;
+}
+
+#workspaces button .niri-taskbar-btn.focused {
+    color: @on_primary_container;
+}
+
+#window {
+    background: @surface_container;
+    color: @on_surface;
+    padding: 3px 12px;
+    margin: 2px 2px;
+    border-radius: 999px;
+}
+
+window#waybar.empty #window {
+    background: transparent;
+}
+
+/* ---------- 中间：防熄屏 + 时钟 + 媒体 ---------- */
+
+#idle_inhibitor {
+    background: @surface_container;
+    color: @on_surface_variant;
+    padding: 3px 10px;
+    margin: 2px 2px;
+    border-radius: 999px;
+    font-size: 16px;
+}
+
+#idle_inhibitor.activated {
+    color: @primary;
+}
+
+#clock {
+    background: @primary_container;
+    color: @on_primary_container;
+    padding: 4px 12px;
+    margin: 4px 2px;
+    border-radius: 999px;
+    font-size: 16px;
+}
+
+#clock:hover {
+    background: @secondary_container;
+    color: @on_secondary_container;
+}
+
+/* 媒体模块：内部三键各自独立胶囊块 */
+#group-mediaplayer {
+    background: transparent;
+}
+
+#custom-media-prev,
+#custom-media-playpause,
+#custom-media-next {
+    background: @surface_container;
+    color: @secondary;
+    padding: 3px 10px;
+    margin: 1px 2px;
+    border-radius: 999px;
+    font-size: 21px;
+}
+
+#custom-media-playpause {
+    color: @primary;
+}
+
+#custom-media-playpause:hover {
+    color: @tertiary;
+}
+
+#custom-media-prev:hover,
+#custom-media-next:hover {
+    color: @primary;
+}
+
+/* ---------- 右侧：托盘 + 音频 + 网络 + 蓝牙 + 系统 + 亮度 + 电池 ---------- */
+
+#tray {
+    background: @surface_container;
+    padding: 3px 8px;
+    margin: 2px 2px;
+    border-radius: 999px;
+}
+
+#tray > .passive,
+#tray > .active {
+    background: transparent;
+}
+
+#tray > .needs-attention {
+    background: @error_container;
+    border-radius: 999px;
+}
+
+/* 音频 group：容器透明，内部扬声器/麦克风/滑条独立胶囊块 */
+#group-audio {
+    background: transparent;
+}
+
+#custom-audio,
+#custom-mic,
+#pulseaudio-slider {
+    background: @surface_container;
+    color: @on_surface_variant;
+    padding: 3px 10px;
+    margin: 1px 2px;
+    border-radius: 999px;
+    font-size: 16px;
+}
+
+#pulseaudio-slider {
+    min-width: 100px;
+}
+
+#pulseaudio-slider slider {
+    min-height: 14px;
+    min-width: 14px;
+    border-radius: 50%;
+    background: @on_surface;
+    border: 2px solid @primary;
+}
+
+#pulseaudio-slider trough {
+    min-height: 6px;
+    border-radius: 3px;
+    background: @surface_container_high;
+}
+
+#pulseaudio-slider highlight {
+    border-radius: 3px;
+    background: @primary;
+}
+
+#custom-audio.muted {
+    color: @error;
+}
+
+#custom-audio.muted:hover {
+    background: @error_container;
+    color: @error;
+}
+
+#custom-mic.source-muted {
+    color: @error;
+}
+
+#network {
+    background: @surface_container;
+    color: @primary;
+    padding: 3px 10px;
+    margin: 2px 2px;
+    border-radius: 999px;
+    font-size: 16px;
+}
+
+#network.disconnected {
+    color: @error;
+}
+
+#bluetooth {
+    background: @surface_container;
+    color: @on_surface_variant;
+    padding: 3px 10px;
+    margin: 2px 2px;
+    border-radius: 999px;
+    font-size: 16px;
+}
+
+#bluetooth.connected {
+    color: @tertiary;
+}
+
+/* 性能切换：三种模式各自独立胶囊块 */
+#power-profiles-daemon {
+    background: @surface_container;
+    color: @on_surface_variant;
+    padding: 3px 10px;
+    margin: 2px 2px;
+    border-radius: 999px;
+    font-size: 16px;
+}
+
+#power-profiles-daemon.performance {
+    color: @primary;
+}
+
+#power-profiles-daemon.balanced {
+    color: @secondary;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @tertiary;
+}
+
+/* 系统监测 group：容器透明，cpu/内存/温度独立胶囊块 */
+#group-system {
+    background: transparent;
+}
+
+#cpu,
+#memory,
+#temperature {
+    background: @surface_container;
+    color: @on_surface_variant;
+    padding: 3px 8px;
+    margin: 1px 2px;
+    border-radius: 999px;
+}
+
+#temperature.critical {
+    color: @error;
+}
+
+/* 亮度 group：容器透明，亮度/滑条独立胶囊块 */
+#group-backlight {
+    background: transparent;
+}
+
+#backlight,
+#backlight-slider {
+    background: @surface_container;
+    color: @on_surface_variant;
+    padding: 3px 8px;
+    margin: 1px 2px;
+    border-radius: 999px;
+    font-size: 16px;
+}
+
+#backlight-slider {
+    min-width: 90px;
+}
+
+#backlight-slider slider {
+    min-height: 14px;
+    min-width: 14px;
+    border-radius: 50%;
+    background: @on_surface;
+    border: 2px solid @tertiary;
+}
+
+#backlight-slider trough {
+    min-height: 6px;
+    border-radius: 3px;
+    background: @surface_container_high;
+}
+
+#backlight-slider highlight {
+    border-radius: 3px;
+    background: @tertiary;
+}
+
+/* 电池 */
+#battery {
+    background: @surface_container;
+    color: @on_surface_variant;
+    padding: 3px 10px;
+    margin: 2px 2px;
+    border-radius: 999px;
+}
+
+#battery.charging {
+    color: @tertiary;
+}
+
+#battery.critical:not(.charging) {
+    color: @error;
+    animation-name: blink;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: @error_container;
+        color: @on_error_container;
+    }
+}
+
+/* 统一悬停高亮：所有模块（含 group 内部）同一套高亮 */
+#custom-power:hover,
+#idle_inhibitor:hover,
+#custom-media-prev:hover,
+#custom-media-playpause:hover,
+#custom-media-next:hover,
+#network:hover,
+#bluetooth:hover,
+#power-profiles-daemon:hover,
+#battery:hover,
+#tray:hover,
+#custom-audio:hover,
+#custom-mic:hover,
+#pulseaudio-slider:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#backlight-slider:hover {
+    background: @surface_container_high;
+    color: @on_surface;
+}

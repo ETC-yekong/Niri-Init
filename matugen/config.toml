@@ -1,0 +1,10 @@
+# matugen 配置：从壁纸提取 Material You 配色，输出到 waybar
+# 壁纸由 waypaper（awww 后端）负责，matugen 只生成颜色、不设置壁纸
+[config]
+command = "awww"
+mode = "dark"
+
+# 用模板渲染 waybar 配色文件，生成后重载 waybar
+[templates.waybar]
+input_path = './templates/colors.css'
+output_path = '~/.config/waybar/colors.css'
