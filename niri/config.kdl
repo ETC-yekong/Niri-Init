@@ -275,7 +275,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "mako"
+spawn-at-startup "swaync"
 spawn-at-startup "~/.config/niri/scripts/swayidle.sh"
 spawn-at-startup "clipse" "--listen"
 spawn-at-startup "awww-daemon"
@@ -375,7 +375,7 @@ binds {
     Mod+E { spawn "thunar"; }
     Mod+B { spawn  "/usr/bin/microsoft-edge-stable"; }
     Mod+V { spawn "clipse-gui"; }
-    Mod+Shift+S { spawn-sh "wl-paste | satty -f -"; }
+    Mod+Shift+S { spawn "mark-shot"; }
     Mod+W { spawn "waypaper"; }
     Mod+F12 { spawn-sh "pkill waybar || true && waybar"; }
     Mod+G { spawn "lutris"; }
@@ -409,7 +409,7 @@ binds {
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "-d" "intel_backlight " "set" "10%+"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "-d" "intel_backlight" "set" "10%+"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-d" "intel_backlight" "set" "10%-"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
